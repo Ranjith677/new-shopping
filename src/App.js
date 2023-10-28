@@ -1,17 +1,23 @@
-
+import { useState } from "react";
+import React from 'react';
 import './App.css';
-import { bootstarp } from "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './navbar';
-import Footer from './footer';
+import Header from "./Component/Header"
+import Navbar from './Component/Navbar';
+import CartData from "./Component/CartData";
+import { Footer } from "./Component/Footer";
+
 
 function App() {
-  return (
-    <>
-    <Navbar></Navbar>
-    <Footer></Footer>
+    let [count, setCount] = useState(0);
+    return <>
+
+        {/* Calling the function */}
+        <Navbar data={{ count, setCount }} />
+        <Header />
+        <CartData count={count} setCount={setCount} />
+        <Footer/>
+
     </>
-  
-  );
 }
 
 export default App;
